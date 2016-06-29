@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+
+	"name": "chrome extention test",
+	"description": "This is a practice for Facebook.",
+	"version": "1.0",
+
+	"permissions" : [
+		"tabs"
+	],
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html",
+		"default_title": "Click here!"
+	},
+
+	"content_scripts": [
+	    {
+	        "matches": ["https://*/*","http://*/*"],
+	        "js": ["content.js"]
+	    }
+	],
+
+	"background" : {
+		"scripts": ["background.js"]
+	}
+
+}
