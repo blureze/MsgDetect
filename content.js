@@ -3,8 +3,6 @@ function checkFocus() {
 	chatclass = document.getElementsByClassName("fbNub _50-v _50mz _50m_ opened");
 	console.log(chatclass.length);
 	if ($(chatclass).hasClass('focusedTab')) {
-	    console.log('class name change');
-
 	    /*get receiver's name*/
 	    thisChatclass = document.getElementsByClassName("fbNub _50-v _50mz _50m_ opened focusedTab")[0];
 	    namediv = thisChatclass.getElementsByClassName("name fwb")[0];
@@ -13,6 +11,11 @@ function checkFocus() {
 	    var receiver_name = $.trim($(namespan).text());
 
 	    /*get input content*/
+	    inputdiv = thisChatclass.getElementsByClassName("_5rpu")[0];
+	    inputspan = inputdiv.getElementsByTagName("span")[0];
+	    console.log($.trim($(inputspan).text()));
+	    // console.log($.trim($(inputspan).text()));
+	    // var receiver_name = $.trim($(namespan).text());	    
 	}
 
 	setTimeout(checkFocus, 2000);	
