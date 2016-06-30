@@ -14,8 +14,7 @@ function checkFocus() {
 	    inputdiv = thisChatclass.getElementsByClassName("_5rpu")[0];
 	    inputspan = inputdiv.getElementsByTagName("span")[0];
 	    console.log($.trim($(inputspan).text()));
-	    // console.log($.trim($(inputspan).text()));
-	    // var receiver_name = $.trim($(namespan).text());	    
+	    var user_input = $.trim($(inputspan).text());	    
 	}
 
 	setTimeout(checkFocus, 2000);	
