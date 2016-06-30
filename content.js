@@ -1,52 +1,42 @@
 function checkFocus() {
 	console.log("checkFocus~");
-	
-	
-		var divclass = document.getElementsByClassName("_1mf _1mj");
-		if(divclass.length != 0) {
-			console.log('find divclass');
-			console.log(divclass.length);
-			for (i = 0; i < divclass.length; i++) {
-			    divclass[i].addEventListener('focus', function() {
-			    	console.log("click");
-			    });
-			}	
-		}
-		else {
-			console.log('cannot find divclass');
-		}
-	
+	chatclass = document.getElementsByClassName("fbNub _50-v _50mz _50m_ opened");
+	console.log(chatclass.length);
+	if ($(chatclass).hasClass('focusedTab')) {
+	    console.log('class name change');
 
-	console.log('end of function');
+	    /*get receiver's name*/
+	    thisChatclass = document.getElementsByClassName("fbNub _50-v _50mz _50m_ opened focusedTab")[0];
+	    namediv = thisChatclass.getElementsByClassName("name fwb")[0];
+	    namespan = namediv.getElementsByTagName("span")[0];
+	    console.log($.trim($(namespan).text()));
+	    var receiver_name = $.trim($(namespan).text());
+
+	    /*get input content*/
+	}
+
+	setTimeout(checkFocus, 2000);	
 }
 
-// document.addEventListener('click', function() {
-// 	console.log("click!");	
-// });
+checkFocus();
 
-
-// divclass.addEventListener('focus', function() {
-// 	console.log("focused");
-// });
-
-
-var port = chrome.runtime.connect({name: "mychannel"});
-port.postMessage({todo: "check focused"});
-port.onMessage.addListener(function(msg) {
+// var port = chrome.runtime.connect({name: "mychannel"});
+// port.postMessage({todo: "check focused"});
+// port.onMessage.addListener(function(msg) {
 		
-	if (msg.reply == "checking focused") {
-		// port.postMessage({todo: "nothing"});
-		console.log("NOOOOOOOOOO~");
-		checkFocus();
-	}
-});
+// 	if (msg.reply == "checking focused") {
+// 		// port.postMessage({todo: "nothing"});
+// 		console.log("NOOOOOOOOOO~");
+// 		checkFocus();
+// 	}
+// });
 
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+/*chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 	console.log("contents");
     switch(message.type) {
         case "check-focused":
         	checkFocus();
         break;
     }
-});
+});*/
